@@ -26,6 +26,8 @@ class IPV4Scan:
             for num in range (255):
                 network.append(f"{host_netadress}.{num}")
             IPV4Scan.ping_ipv4(network, host_ipv4)
+            print("*************************")
+            print("Complete Network Scanned")
 
             pass
 
@@ -50,8 +52,7 @@ class IPV4Scan:
                 target = "Host" if ip == host_ipv4 else "Client"
             
                 #Sucessfull ping show TTL(time to live)
-                if search("TTL",str(out)) == True:
-                   
+                if search("TTL",str(out)):
                     msg = f"{target}, {ip} is up, ping sucessfull"
                 else:
                     msg = f"{target}, {ip} ist down, check connection or unblock ping from firewall"
